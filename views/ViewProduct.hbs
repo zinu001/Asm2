@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th, thead, tr{
+            text-align:center
+        }
+        table{
+            margin: 50px;
+            width: 25%;
+        }
+        div{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;background-color:DodgerBlue;" >All Product</h1>
+    <form action="/Search" method="post">
+    <input type="text" name="txtSearch" id="">
+    <input type="submit" name="" id="" value="Search">
+    </form>
+    <div class="container">
+      <table  class="table table-dark table-striped">
+            <thead>
+                <tr >
+                    <th scope="col">Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Option</th>
+                </tr>
+            </thead>
+            {{#each prods}}
+            <tbody>
+                <tr>
+                    <td>{{name}}</td>
+                    <td><img src={{image}} width="100px" height="100px"></td>
+                    <td>{{price}}</td>
+                    <td>
+                        <button type="submit" class="btn btn-danger">
+                            <a href="/delete?id={{_id}}" onclick="return confirm('Are you sure?')" style="color:rgb(252, 0, 0)">Delete</a> 
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            {{/each}}
+        </table>
+</div>
+</body>
+</html>
